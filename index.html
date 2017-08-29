@@ -1,0 +1,54 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>令世界</title>
+<script>
+(function (win,doc){
+if (!win.addEventListener) return;
+var html=document.documentElement;
+function setFont()
+{
+	var cliWidth=html.clientWidth;
+	html.style.fontSize=100*(cliWidth/750)+'px';
+}
+win.addEventListener('resize',setFont,false);
+setFont();
+})(window,document);
+</script>
+<style>
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+table{border-collapse:collapse;border-spacing:0}
+audio,canvas,video{ display: inline-block;}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ol,ul{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}
+a{text-decoration:none; -webkit-tap-highlight-color:transparent;}
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+html{-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;-webkit-overflow-scrolling: touch;}
+img {border: 0; -webkit-touch-callout: none;}
+body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Arial,sans-serif,"Droid Sans Fallback"; -webkit-text-size-adjust: 100%;-webkit-user-select: none; user-select: none; font-size:12px;}
+.wrapper{ position:relative; font-size:12px;}
+.wrapper *,.dia-con *{ -webkit-box-sizing:border-box; box-sizing:border-box;}
+.wrapper section{ width:100%; position:relative; overflow:hidden;}
+.wrapper h1{ display:none;}
+.wrapper img{ display:block;}
+
+.wrapper img{width: 100%;height: auto;}
+</style>
+ 
+</head>
+<body>
+<div class="wrapper">
+	<img src="http://oth3x62gr.bkt.clouddn.com/bg.jpg" width="750" height="703"/>
+</div>
+
+</body>
+</html>

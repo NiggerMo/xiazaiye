@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>令世界</title>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <script type="text/javascript">
+        var u = navigator.userAgent;
+//        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isiOS == true){
+            //iOS
+            window.onload=function(){
+                document.getElementById('content').innerHTML='版本：1.1.0 | 大小：30.5MB';
+            }
+        }
+        else{
+            //安卓
+            window.onload=function(){
+                document.getElementById('content').innerHTML='版本：1.1.0 | 大小：13.8MB';
+            }
+        }
+        
+        function DownLoad() {
+            if (isiOS == true){
+                //iOS
+                var btn = document.getElementById("downLoadBtn");
+                var tip = document.getElementById("Tip");
+                btn.style.display = "none";
+                tip.style.display = "";
+				window.location.href="itms-services:///?action=download-manifest&url=https://linkworldonline.com/apps/LinkWorld.plist";
+            }
+            else{
+                //安卓
+                window.location.href="https://linkworldonline.com/apps/linkworld_a_1.1.0.apk";
+            }
+        }
+    </script>
+<style type="text/css">
+	#row0{width: 70%;height: 150px;}
+	#row1 .img-responsive{width: 100%;height: auto;}
+	#row1 #downLoadBtn{height: 120px; width: 100%;margin-top: 30px; border:1px solid #10f9b7; background-color:#28283c; color: #10f9b7; font-size: 40px;}
+	#row1 #Tip{display: none; font-size: 40px; color: #ffcc5f; text-align: center;}
+	#row2 div{font-size: 40px; color: #73737c; text-align: center; margin-top: 100px}
+	#row2 #content{font-size: 40px; color: #73737c; text-align: center; margin-top: 50px}
+</style>
+</head>
+<body style="background-color: #28283c">
+    <div class="container-fluid">
+        <div class="row" id="row0">
+            <img src="http://oth3x62gr.bkt.clouddn.com/bg.jpg" class="img-responsive" alt="Responsive image">
+        </div>
+        <div class="row" id="row1">
+            <div class="container">
+                <button id="downLoadBtn" type="button" class="btn btn-default" onclick="DownLoad()" >点击下载安装</button>
+                <div id="Tip">
+                    正在安装，请按Home键到桌面查看，如果无法下载请通过Safari浏览器下载
+                </div>
+            </div>
+        </div>
+        <div class="row" id="row2">
+            <div>
+                适用于iOS/Android设备
+            </div>
+            <div id="content">
+                版本： | 大小：
+            </div>
+        </div>
+    </div>
+</body>
+</html>
