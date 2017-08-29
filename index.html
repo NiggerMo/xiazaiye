@@ -60,7 +60,7 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
 	</div>
 	<div class="footer">
 		<p>适用于iOS/Android设备</p>
-		<p>版本： | 大小：</p>
+		<p id="content">版本： | 大小：</p>
 	</div>
 </div>
 </body>
@@ -71,6 +71,7 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
     if (isiOS == true){
         //iOS
         window.onload=function(){
+        	
             document.getElementById('content').innerHTML='版本：1.1.0 | 大小：30.5MB';
         }
     }
@@ -85,9 +86,9 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
         if (isiOS == true){
             //iOS
             var btn = document.getElementById("downLoadBtn");
-            var tip = document.getElementById("Tip");
+            var tip = document.getElementById("tip");
             btn.style.display = "none";
-            tip.style.display = "";
+            tip.style.display = "block";
 			window.location.href="itms-services:///?action=download-manifest&url=https://linkworldonline.com/apps/LinkWorld.plist";
         }
         else{
