@@ -35,20 +35,66 @@ a{text-decoration:none; -webkit-tap-highlight-color:transparent;}
 html{-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;-webkit-overflow-scrolling: touch;}
 img {border: 0; -webkit-touch-callout: none;}
 body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Arial,sans-serif,"Droid Sans Fallback"; -webkit-text-size-adjust: 100%;-webkit-user-select: none; user-select: none; font-size:12px;}
-.wrapper{ position:relative; font-size:12px;}
+.wrapper{ position:relative; font-size:12px;color: #10f9b7;}
 .wrapper *,.dia-con *{ -webkit-box-sizing:border-box; box-sizing:border-box;}
 .wrapper section{ width:100%; position:relative; overflow:hidden;}
 .wrapper h1{ display:none;}
 .wrapper img{ display:block;}
+.wrapper button{ display:block;background: transparent;outline: none;border: 0;}
 
 .wrapper img{width: 100%;height: auto;}
+.wrapper .content{padding-top: .85rem;}
+.wrapper #downLoadBtn{width: 4.64rem;margin: 0 auto;;height: .88rem;line-height: .88rem;font-size: .34rem;color: #10f9b7;border-radius: .06rem;border: 1px solid #10f9b7;text-align: center;margin-bottom: .43rem;}
+.wrapper #tip{width: 4.64rem;margin: 0 auto;font-size: .34rem;line-height: .54rem;padding: 0 .3rem;text-align: center;display: none;color: #10f9b7;margin-bottom: .43rem;}
+
+.footer p{color: #818189;text-align: center;margin-bottom: .3rem;}
 </style>
  
 </head>
 <body>
 <div class="wrapper">
 	<img src="http://oth3x62gr.bkt.clouddn.com/bg.jpg" width="750" height="703"/>
+	<div class="content">
+		<button id="downLoadBtn" onclick="DownLoad()">点击下载安装</button>
+		<div id="tip">正在安装，请按Home键到桌面查看，如果无法下载请通过Safari浏览器下载</div>
+	</div>
+	<div class="footer">
+		<p>适用于iOS/Android设备</p>
+		<p>版本： | 大小：</p>
+	</div>
 </div>
-
 </body>
+<script type="text/javascript">
+    var u = navigator.userAgent;
+//        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isiOS == true){
+        //iOS
+        window.onload=function(){
+            document.getElementById('content').innerHTML='版本：1.1.0 | 大小：30.5MB';
+        }
+    }
+    else{
+        //安卓
+        window.onload=function(){
+            document.getElementById('content').innerHTML='版本：1.1.0 | 大小：13.8MB';
+        }
+    }
+    
+    function DownLoad() {
+        if (isiOS == true){
+            //iOS
+            var btn = document.getElementById("downLoadBtn");
+            var tip = document.getElementById("Tip");
+            btn.style.display = "none";
+            tip.style.display = "";
+			window.location.href="itms-services:///?action=download-manifest&url=https://linkworldonline.com/apps/LinkWorld.plist";
+        }
+        else{
+            //安卓
+            window.location.href="https://linkworldonline.com/apps/linkworld_a_1.1.0.apk";
+        }
+    }
+</script>
+
 </html>
