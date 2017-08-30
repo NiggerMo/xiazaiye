@@ -53,7 +53,7 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
 </head>
 <body>
 <div class="wrapper">
-	<img src="download_bg.png" width="750" height="703"/>
+	<img class="lazy"  data-original="download_bg.png" width="750" height="703"/>
 	<div class="content">
 		<button id="downLoadBtn" onclick="DownLoad()">点击下载安装</button>
 		<div id="tip">正在安装，请按Home键到桌面查看，如果无法下载请通过Safari浏览器下载</div>
@@ -64,6 +64,8 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
 	</div>
 </div>
 </body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="lazyload.min.js"></script>
 <script type="text/javascript">
     var u = navigator.userAgent;
 //        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
@@ -96,6 +98,13 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
             window.location.href="https://linkworldonline.com/apps/linkworld_a_1.1.0.apk";
         }
     }
+    
+    //图片懒加载
+    $(function(){
+        $("img.lazy").lazyload({
+            threshold :0
+        });
+    })
 </script>
 
 </html>
