@@ -69,7 +69,7 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
 	</div>
 </div>
 	<!--mask-->
-	<div class="mask">
+	<div class="mask" style="display: none;">
 		<i class="icon_arrow"></i>
 		<p>为更好的用户体验<br />请手动在浏览器中打开下载app</p>
 	</div>
@@ -96,6 +96,7 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
     }
     
     function DownLoad() {
+    	$(".mask").css("display","none");
         if (isiOS == true){
             //iOS
             var btn = document.getElementById("downLoadBtn");
@@ -133,27 +134,24 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
         var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
         if (ua.match(/MicroMessenger/i) == "micromessenger") {
                 //在微信中打开
-                alert("weixin");
+                $(".mask").css("display","block");
+                
         }
         if (ua.match(/WeiBo/i) == "weibo") {
                 //在新浪微博客户端打开
-                alert("xinlang");
         }
         if (ua.match(/QQ/i) == "qq") {
                 //在QQ空间打开
-                alert("qq");
+                $(".mask").css("display","block");
         }
         if (browser.versions.ios) {
                 //是否在IOS浏览器打开
-                alert("ios");
         } 
         if(browser.versions.android){
                 //是否在安卓浏览器打开
-                alert("anzhuo");
         }
 	} else {
 	        //否则就是PC浏览器打开
-	        alert("pc");
 	        
 	}
     
