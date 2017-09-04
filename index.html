@@ -50,9 +50,9 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
 .footer p{color: #818189;text-align: center;margin-bottom: .3rem;}
 
 /*mask*/
-.mask{width: 7.5rem;padding-top: 13.34rem;position: relative;font-size: .24rem;color: #FFFFFF;text-align: center;z-index: 99;background-color: rgba(0,0,0,.9);position: relative;}
+.mask{width: 7.5rem;min-height: 1.8rem;font-size: .24rem;color: #FFFFFF;text-align: center;z-index: 99;background-color: #28283c;position: relative;}
 .mask i{width: 1.8rem;height: 1.8rem;background: url(icon_tiparrow.png) no-repeat;background-size: 100%;position: absolute;top: 0;right: 0;}
-.mask p{line-height: .65rem;width: 100%;height: 3rem;text-align: center;position: absolute;top: 50%;margin-top: -1.5rem;}
+.mask p{line-height: .65rem;width: 100%;text-align: center;}
 </style>
  
 </head>
@@ -60,7 +60,7 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
 <!--mask-->
 <div class="mask" style="display: none;">
 	<i class="icon_arrow"></i>
-	<p>为更好的用户体验<br />请手动在浏览器中打开下载app</p>
+	<p>点击右上角按钮，然后在弹出的菜单中，<br />点击在浏览器中打开，即可安装</p>
 </div>
 <div class="wrapper">
 	<img class="lazy"  data-original="download_bg.png" width="750" height="703"/>
@@ -95,54 +95,7 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
     }
     
     function DownLoad() {
-    	$(".mask").css("display","none");
-    	
-    	var browser = {
-	    	versions: function () {
-		        var u = navigator.userAgent, app = navigator.appVersion;
-		        return {         //移动终端浏览器版本信息
-		            trident: u.indexOf('Trident') > -1, //IE内核
-		            presto: u.indexOf('Presto') > -1, //opera内核
-		            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-		            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-		            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-		            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-		            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
-		            iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
-		            iPad: u.indexOf('iPad') > -1, //是否iPad
-		            webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
-		        };
-		    }(),
-		    language: (navigator.browserLanguage || navigator.language).toLowerCase()
-		}
-    	
-    	
-    	if (browser.versions.mobile) {//判断是否是移动设备打开。browser代码在下面
-	        var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
-	        if (ua.match(/MicroMessenger/i) == "micromessenger") {
-	                //在微信中打开
-	                $(".mask").css("display","block");
-	                return;
-	                
-	        }
-	        if (ua.match(/WeiBo/i) == "weibo") {
-	                //在新浪微博客户端打开
-	        }
-	        if (ua.match(/QQ/i) == "qq") {
-	                //在QQ空间打开
-	                $(".mask").css("display","block");
-	                return;
-	        }
-	        if (browser.versions.ios) {
-	                //是否在IOS浏览器打开
-	        } 
-	        if(browser.versions.android){
-	                //是否在安卓浏览器打开
-	        }
-		} else {
-		        //否则就是PC浏览器打开
-		        
-		}
+    	$(".mask").css("display","none");  	
     	
         if (isiOS == true){
             //iOS
@@ -159,8 +112,52 @@ body{background-color: #28283c; font-family:'\5FAE\8F6F\96C5\9ED1',STHeiTi, Aria
     }
     
     
-    
-    
+    var browser = {
+    	versions: function () {
+	        var u = navigator.userAgent, app = navigator.appVersion;
+	        return {         //移动终端浏览器版本信息
+	            trident: u.indexOf('Trident') > -1, //IE内核
+	            presto: u.indexOf('Presto') > -1, //opera内核
+	            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+	            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+	            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+	            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+	            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+	            iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+	            iPad: u.indexOf('iPad') > -1, //是否iPad
+	            webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+	        };
+	    }(),
+	    language: (navigator.browserLanguage || navigator.language).toLowerCase()
+	}
+	
+	
+	if (browser.versions.mobile) {//判断是否是移动设备打开。browser代码在下面
+        var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                //在微信中打开                
+            	$(".mask").css("display","block");
+                
+                
+        }
+        if (ua.match(/WeiBo/i) == "weibo") {
+                //在新浪微博客户端打开
+        }
+        if (ua.match(/QQ/i) == "qq") {
+                //在QQ空间打开               
+            	$(".mask").css("display","block");
+              
+        }
+        if (browser.versions.ios) {
+                //是否在IOS浏览器打开
+        } 
+        if(browser.versions.android){
+                //是否在安卓浏览器打开
+        }
+	} else {
+	        //否则就是PC浏览器打开
+	        
+	}
     
     //图片懒加载
     $(function(){
